@@ -2,6 +2,10 @@
 
 .idea/
 
+.vs
+obj
+bin
+
 # dependencies
 node_modules/
 /.pnp
