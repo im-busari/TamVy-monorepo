@@ -1,3 +1,3 @@
 #!/bin/sh
 
-git config --local ./.gitconfig
+git config --local core.hooksPath .hooks
