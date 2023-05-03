@@ -1,0 +1,19 @@
+1) Pre-receive (server side hook):
+- Sounds like the best option so far. However, it is reserved fot GitHub enterprise only and haven't been able to test it.
+- It CANNOT be bypassed using git options from client.
+
+This is a github repo with platform samples for using pre-receive hook on GitHub.
+This directory contains examples for pre-receive hooks which are a GitHub Enterprise feature
+to block unwanted commits before they even reach your repository.
+Link: https://github.com/github/platform-samples/tree/master/pre-receive-hooks
+
+Not able to test, don't know what we see on EasyJet.
+
+2) Pre-push (client hook)
+- We could use pre-push to check if commit messages are up to requirements.
+- Unfortunately if the user hasn't setup locally to point to the right directory folder we could still push changes without passing the check
+- also available to skip manually using --no-verify tag
+
+3) GitHub Action
+- create a GitHub action that will check the messages in the PR and fail if it doesn't meet our requirements.
+
