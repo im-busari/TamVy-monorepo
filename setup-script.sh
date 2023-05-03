@@ -5,3 +5,4 @@
 
 git config --local core.hooksPath .hooks
 git config --local advice.ignoredHook false
+chmod 777 .hooks/*

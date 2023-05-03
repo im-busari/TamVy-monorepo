@@ -1,10 +1,24 @@
 #!/usr/bin/env node
 
+// https://dev.to/mbarzeev/a-git-hook-for-commit-messages-validation-no-husky-just-js-1hni
+// https://gist.github.com/aquiseb/6cd2f0e311ee5f54c5b0c8db39f606b4 -- consider edge cases
+
 const fs = require('fs');
 
 const commitMsgFile = process.argv[2];
 const message = fs.readFileSync(commitMsgFile, 'utf8')
-console.log('message:', message);
+const messageTitle = message.split('\n')[0]
+const issueTag = "TAG-1234"
 
-process.exit(1)
+if (issueTag) {
+    // Apply the issue tag to message title
+    const messageLines = message.split('\n');
+    messageLines[0] = `[${issueTag.toUpperCase()}]: ${messageTitle}`;
+    fs.writeFileSync(commitMsgFile, messageLines.join('\n'), { encoding: 'utf-8' });
+    console.log(`New message title: ${messageLines[0]}`);
+}
+
+// process.exit(1)
 process.exit(0)
+
+// To handle commit merge request from main branches - when syncing changes with the main branch
