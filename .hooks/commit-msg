@@ -1,3 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env node
 
-echo Hello
+const fs = require('fs');
+
+const commitMsgFile = process.argv[2];
+const message = fs.readFileSync(commitMsgFile, 'utf8')
+console.log('message:', message);
+
+process.exit(1)
