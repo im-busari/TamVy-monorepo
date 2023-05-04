@@ -11,8 +11,9 @@ jobs:
   commit-messages:
     runs-on: ubuntu-latest
     steps:
-      - name: "Check commit messages include Jira tag."
-        run: echo ${{ github.event.commits[0].message }}
+      - uses: actions/checkout@v3
+      - name: Check commit messages include Jira tag
+        run: echo ${{github.event.commits[0].message }}
   pr-title:
     runs-on: ubuntu-latest
     steps:
