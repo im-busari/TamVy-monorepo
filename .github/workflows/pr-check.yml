@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check commit messages include Jira tag
-      - run: |
+        run: |
           echo ${{github.event.commits[0].message }}
           git log -1
   pr-title:
