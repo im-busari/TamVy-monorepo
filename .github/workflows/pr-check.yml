@@ -1,0 +1,32 @@
+name: PR-Check
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  pull_request:
+    types: ["opened"]
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  commit-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check commit messages include Jira tag."
+        run: ${{ github.event_name == 'pull_request' }}
+  pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Verify the name of the PR is well formatted."
+        run: PR is looking good!
+  assign-user:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Ensure that the author is assigned to the PR."
+        run: User assigned to the PR!
+  pr-description:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Ensure we have description for this PR."
+        run: It has a description.
