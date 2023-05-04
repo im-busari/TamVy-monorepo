@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check commit messages include Jira tag
-        run: echo ${{github.event.commits[0].message }}
+      - run: |
+          echo ${{github.event.commits[0].message }}
+          git log -1
   pr-title:
     runs-on: ubuntu-latest
     steps:
