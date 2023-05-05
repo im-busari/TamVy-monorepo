@@ -18,7 +18,7 @@ jobs:
           node-version: '18.x'
       - run: |
           echo First run!
-      - run: node ./actions/commit-messages
+      - run: node ./.github/actions/commit-messages
   pr-title:
     runs-on: ubuntu-latest
     steps:
