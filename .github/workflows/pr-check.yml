@@ -16,6 +16,7 @@ jobs:
           fetch-depth: 0
           ref: feature/TAG-12345_PR-Check-Action
       - run: git fetch --all
+      - run: git branch
       - name: Check commit messages include Jira tag
         uses: actions/setup-node@v3
         with:
