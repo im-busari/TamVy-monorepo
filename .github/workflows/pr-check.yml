@@ -18,7 +18,7 @@ jobs:
           node-version: '18.x'
       - run: |
           echo First run!
-      - run: node ./.github/actions/commit-messages
+      - run: git cherry -v master feature/TAG-12345_PR-Check-Action
   pr-title:
     runs-on: ubuntu-latest
     steps:
