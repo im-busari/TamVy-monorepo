@@ -13,9 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Check commit messages include Jira tag
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
       - run: |
-          echo ${{github.event.commits[0].message }}
-          git log -1
+          echo First run!
+      - run: node ./actions/commit-messages
   pr-title:
     runs-on: ubuntu-latest
     steps:
