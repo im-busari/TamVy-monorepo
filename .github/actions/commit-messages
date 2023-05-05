@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const execSync = require("child_process").execSync;
+
+// Just show the list of commit messages for this branch.
+var commitMsgs = execSync("git cherry -v master feature/TAG-12345_PR-Check-Action").toString();
+
+console.log("Commit Messages below: ")
+console.log(commitMsgs)
+
+process.exit(0)
