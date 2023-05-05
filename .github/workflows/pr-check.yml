@@ -22,7 +22,7 @@ jobs:
           node-version: '18.x'
       - run: |
           echo First run!
-      - run: git cherry -v master feature/TAG-12345_PR-Check-Action
+      - run: git cherry -v origin/master origin/feature/TAG-12345_PR-Check-Action
   pr-title:
     runs-on: ubuntu-latest
     steps:
